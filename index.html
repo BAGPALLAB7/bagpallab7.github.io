@@ -338,20 +338,20 @@
 			<br><br>
 
 			<div class="formm">
-			<form action='contact.php'>
+			<form method="POST" class="contact-mail">
 			    <div class="input-container">
 				    <i class="fa fa-user icon"></i>
-				    <input class="input-field" type="text" placeholder="Your Name" name="name" required id="nam">
+				    <input class="input-field contact-name" type="text" placeholder="Your Name" name="name" required>
 			  	</div>
 			  	<br>
 			  	<div class="input-container">
 				    <i class="fa fa-envelope icon"></i>
-				    <input class="input-field" type="text" placeholder="Your Email" name="email" required id="mail">
+				    <input class="input-field contact-email" type="text" placeholder="Your Email" name="email" required>
 				  	</div>
 			  	<br>
 				<div class="input-container">
 				    <i class="fa fa-comment icon"></i>
-				    <textarea class="input-field" style="height: 7em; min-height: 4em;" type="textarea" placeholder="Your Message..." name="message" required id="msg"></textarea>
+				    <textarea class="input-field contact-msg" style="height: 7em; min-height: 4em;" type="textarea" placeholder="Your Message..." name="message" required ></textarea>
 				</div> 
 				<br>
 				<div class="submit-btn">
@@ -380,27 +380,9 @@
 		</footer>
 	</div>
 
-	<script type="text/javascript">
-		const scriptURL = 'https://script.google.com/macros/s/AKfycbyeRvRuzU0Y2HvR9mSso9gXpK6xtsRqncWY-inrufG8c-QTTdY/exec'
-        const form = document.forms['google-sheet']   
-	
-        form.addEventListener('submit', e => {
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
 
-        	 var n = document.getElementById('nam').value;
-        	 var m = document.getElementById('mail').value;
-        	 
-        	 var str= "Hey "+n.toUpperCase()+" !\nThanks for contacting.\nWill reach you at '"+m+"'.";
-              e.preventDefault()
-              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => alert(str))
-                .catch(error => console.error('Error!', error.message))
-
-                document.getElementById("nam").value = "";
-	        	document.getElementById("mail").value = "";
-	        	document.getElementById("msg").value = "";
-            })
-        
-	</script>
+    	<script src="contact.js"></script>
 	
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
