@@ -8,3 +8,9 @@
 .navbar-brand{
     margin-left: 3rem;
 }
+.card img{
+    width: 100%;
+    height: 300px;
+    object-fit: fill;
+    overflow: hidden;
+}
